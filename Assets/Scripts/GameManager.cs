@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject titleScreen;
+
     public TextMeshProUGUI scoreText;
     private int score;
 
@@ -48,13 +50,17 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
-    public void StartGame()
+    public void StartGame(int difficulty)
     {
         isGameActive = true;
         score = 0;
 
+        spawnRate /= difficulty;
+
         StartCoroutine(SpawnTarget());
         UpdateScore(0);
+
+        titleScreen.SetActive(false);
     }
 
     public void GameOver()
