@@ -22,12 +22,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isGameActive = true;
-        score = 0;
-
-        StartCoroutine(SpawnTarget());
-        UpdateScore(0);
-        
         
     }
 
@@ -54,6 +48,14 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
+    public void StartGame()
+    {
+        isGameActive = true;
+        score = 0;
+
+        StartCoroutine(SpawnTarget());
+        UpdateScore(0);
+    }
 
     public void GameOver()
     {
